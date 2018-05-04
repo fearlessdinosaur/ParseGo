@@ -14,17 +14,18 @@ Lexer::Lexer()
 
 string Lexer::getToken()
 {
-	string x = "lexer Active";
 	char character;
+	string token = "";
 	if (myfile.is_open())
 	{
 		myfile.get(character);
 		while (character != ' ')
 		{
-			cout << character;
+			token.append(1,character);
 			myfile.get(character);
+			
 		}
-		myfile.close();
 	}
-	return x;
+	token.append("\n");
+	return token;
 }
