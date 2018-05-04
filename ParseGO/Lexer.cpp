@@ -15,12 +15,14 @@ Lexer::Lexer()
 string Lexer::getToken()
 {
 	string x = "lexer Active";
-	string line;
+	char character;
 	if (myfile.is_open())
 	{
-		while (getline(myfile, line))
+		myfile.get(character);
+		while (character != ' ')
 		{
-			cout << line << '\n';
+			cout << character;
+			myfile.get(character);
 		}
 		myfile.close();
 	}
