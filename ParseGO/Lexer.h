@@ -12,4 +12,5 @@ class Lexer
 public:
 	Lexer();
 	string getToken();
+	int count;
 };

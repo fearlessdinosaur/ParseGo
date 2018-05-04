@@ -9,23 +9,37 @@
 ifstream myfile("sample.go");
 Lexer::Lexer()
 {
-
+	count = 0;
 }
 
 string Lexer::getToken()
 {
 	char character;
+	string discard;
+	
 	string token = "";
+	cout << count;
 	if (myfile.is_open())
 	{
+		
 		myfile.get(character);
-		while (character != ' ')
+
+		if(character == '\n' || character == '\r')
 		{
-			token.append(1,character);
 			myfile.get(character);
-			
 		}
+
+			while (character != ' ' && character != '\n')
+			{
+					token.append(1,character);
+					myfile.get(character); 
+				
+
+			
+			}
+
 	}
 	token.append("\n");
+	count++;
 	return token;
 }
