@@ -18,7 +18,6 @@ string Lexer::getToken()
 	string discard;
 	
 	string token = "";
-	cout << count;
 	if (myfile.is_open())
 	{
 		
