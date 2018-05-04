@@ -1,4 +1,2 @@
-﻿  ParseGO.cpp
-  Parser.cpp
-  Generating Code...
+﻿  Lexer.cpp
   ParseGO.vcxproj -> C:\Users\dcrai\Vagrant\Vagrant_Shared_Folder\ParseGO\Debug\ParseGO.exe

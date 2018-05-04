@@ -19,7 +19,7 @@ string Parser::lookPackage()
 	Lexer lex;
 	package = lex.getToken();
 
-	if (package.compare("package") == 0) {
+	if (package.compare("package")) {
 		result = "Package found";
 		return result;
 	}

@@ -16,7 +16,6 @@ string Lexer::getToken()
 {
 	char character;
 	string discard;
-	
 	string token = "";
 	if (myfile.is_open())
 	{
