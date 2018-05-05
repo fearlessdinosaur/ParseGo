@@ -6,17 +6,41 @@
 #include <iostream>
 #include <fstream>
 
+Lexer lex;
 Parser::Parser()
 {
 
 }
 
+string Parser::getNext()
+{
+	string toke;
+	string res;
+	toke = lex.getToken();
+
+	if (toke.compare("package")==1)
+	{	
+		cout << toke;
+		res=lookPackage();
+		return res;
+	}
+
+	if (toke.compare("import") == 1)
+	{
+		cout << toke;
+		res = lookImport();
+		return res;
+	}
+	return res;
+}
+
 string Parser::lookPackage()
 {
+	string result;
+	/*
 	string package;
 	string literal;
-	string result;
-	Lexer lex;
+	
 	package = lex.getToken();
 
 	if (package.compare("package")) {
@@ -28,14 +52,14 @@ string Parser::lookPackage()
 		cout << "Didnt work";
 		return 0;
 	}
+	*/
+	result ="	-->"+ lex.getToken();
+	return result;
 }
 
 string Parser::lookImport()
 {
-	string import;
-	string literal;
 	string result;
-	Lexer lex;
 	
 	//Used to see if if import could be found
 	/*
@@ -57,22 +81,8 @@ string Parser::lookImport()
 	} while (import.compare("import"));
 	*/
 
-	import = lex.getToken();
-	while (import.compare("import")) {
-		result = "Import found";
-		return result;
-		import = lex.getToken();
-
-		if (import.compare("import")) {
-			result = "import found";
-			return result;
-		}
-		else
-		{
-			cout << "Import not found";
-			return 0;
-		}
-	}
+	result = "	-->" + lex.getToken();
+	return result;
 }
 Parser::~Parser()
 {
