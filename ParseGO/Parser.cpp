@@ -31,6 +31,11 @@ string Parser::getNext()
 		res = lookImport();
 		return res;
 	}
+
+	if (toke.compare("EOF") == 1)
+	{
+		return "END";
+	}
 	return res;
 }
 

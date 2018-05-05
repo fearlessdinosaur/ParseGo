@@ -19,10 +19,14 @@ string Lexer::getToken()
 	string token = "";
 	if (myfile.is_open())
 	{
-
+		
 		
 		myfile.get(character);
 
+		if (myfile.eof())
+		{
+			return "EOF";
+		}
 
 		if(character == '\n' || character == '\r')
 		{
