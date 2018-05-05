@@ -10,6 +10,7 @@ class Parser
 public:
 	Parser();
 	string lookPackage();
+	string getNext();
 	~Parser();
 };
 

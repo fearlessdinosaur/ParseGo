@@ -19,8 +19,10 @@ string Lexer::getToken()
 	string token = "";
 	if (myfile.is_open())
 	{
+
 		
 		myfile.get(character);
+
 
 		if(character == '\n' || character == '\r')
 		{
@@ -35,9 +37,10 @@ string Lexer::getToken()
 
 			
 			}
-
+		token.append("\n");
+		count++;
+		return token;
 	}
-	token.append("\n");
-	count++;
-	return token;
+
+
 }

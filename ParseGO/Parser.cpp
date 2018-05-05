@@ -6,17 +6,34 @@
 #include <iostream>
 #include <fstream>
 
+Lexer lex;
 Parser::Parser()
 {
 
 }
 
+string Parser::getNext()
+{
+	string toke;
+	string res;
+	toke = lex.getToken();
+
+	if (toke.compare("package")==1)
+	{	
+		cout << toke;
+		res=lookPackage();
+		return res;
+	}
+	return res;
+}
+
 string Parser::lookPackage()
 {
+	string result;
+	/*
 	string package;
 	string literal;
-	string result;
-	Lexer lex;
+	
 	package = lex.getToken();
 
 	if (package.compare("package")) {
@@ -28,6 +45,9 @@ string Parser::lookPackage()
 		cout << "Didnt work";
 		return 0;
 	}
+	*/
+	result ="	-->"+ lex.getToken();
+	return result;
 }
 
 Parser::~Parser()
