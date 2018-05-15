@@ -1,4 +1,3 @@
-﻿  ParseGO.cpp
-  Parser.cpp
-  Generating Code...
+﻿  Tree.cpp
+c:\users\dcrai\vagrant\vagrant_shared_folder\parsego\parsego\tree.cpp(13): warning C4102: 'Tree': unreferenced label
   ParseGO.vcxproj -> C:\Users\dcrai\Vagrant\Vagrant_Shared_Folder\ParseGO\Debug\ParseGO.exe

@@ -1,6 +1,5 @@
-#include "Tree.h"
 #include "stdafx.h"
-#include <cstdio>
+#include "Tree.h"
 
 Tree::treeNode root;
 Tree::treeNode package;
@@ -11,9 +10,32 @@ Tree::treeNode decs;
 
 Tree::Tree()
 {
-	root.firstChild = &package;
+	Tree:root.firstChild = &package;
 	package.nextSibling = &Imports;
 	Imports.nextSibling = &functions;
 	functions.nextSibling = &decs;
-}
+	decs.value = "Yay, it worked";
+};
+
+
+ Tree::treeNode Tree::findNode(Tree::treeNode n)
+{
+
+	if (n.firstChild != NULL)
+	{
+		cout << "moving to first child \n";
+		findNode(*n.firstChild);
+		
+	}
+	else
+	{
+		if (n.nextSibling != NULL)
+		{
+			cout << "moving to next sibling \n";
+			findNode(*n.nextSibling);
+			
+		}
+	}
+	return n;
+};
 

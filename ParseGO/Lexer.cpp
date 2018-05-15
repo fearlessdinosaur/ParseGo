@@ -1,8 +1,5 @@
 #include "stdafx.h"
 #include "stdafx.h"
-#include <cstdlib>
-#include <cstdio>
-#include <iostream>
 #include "Lexer.h"
 #include <fstream>
 

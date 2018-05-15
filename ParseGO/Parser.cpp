@@ -3,17 +3,11 @@
 #include "Lexer.h"
 #include <cstdlib>
 #include <cstdio>
-int x;
 #include <iostream>
 #include <fstream>
 #include <list>
 
-struct treeNode
-{
-	string value;
-	treeNode* firstChild;
-	treeNode* nextSibling;
-};
+
 
 Lexer lex;
 Parser::Parser()
