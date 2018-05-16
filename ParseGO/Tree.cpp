@@ -14,6 +14,11 @@ Tree::Tree()
 	package.nextSibling = &Imports;
 	Imports.nextSibling = &functions;
 	functions.nextSibling = &decs;
+
+	root.value = "ROOT";
+	package.value = "PACKAGE";
+	Imports.value = "IMPORTS";
+	functions.value = "FUNCTIONS";
 	decs.value = "Yay, it worked";
 };
 
@@ -23,7 +28,9 @@ Tree::Tree()
 
 	if (n.firstChild != NULL)
 	{
+		cout << n.value+"\n";
 		cout << "moving to first child \n";
+		
 		findNode(*n.firstChild);
 		
 	}
@@ -31,8 +38,11 @@ Tree::Tree()
 	{
 		if (n.nextSibling != NULL)
 		{
+			cout << n.value+"\n";
 			cout << "moving to next sibling \n";
+			
 			findNode(*n.nextSibling);
+			
 			
 		}
 		else
