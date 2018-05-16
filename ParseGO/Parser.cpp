@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Parser.h"
 #include "Lexer.h"
+#include "Tree.h"
 #include <cstdlib>
 #include <cstdio>
 #include <iostream>
@@ -61,7 +62,9 @@ string Parser::lookPackage()
 		return 0;
 	}
 	*/
-	result ="	-->"+ lex.getToken();
+	result = lex.getToken();
+	Tree tree = Tree();
+	tree.CreateNode(result, tree.package);
 	return result;
 }
 
@@ -89,7 +92,9 @@ string Parser::lookImport()
 	} while (import.compare("import"));
 	*/
 
-	result = "	-->" + lex.getToken();
+	result = lex.getToken();
+	Tree tree = Tree();
+	tree.CreateNode(result, tree.Imports);
 	return result;
 }
 Parser::~Parser()
