@@ -16,6 +16,7 @@ string Lexer::getToken()
 	string token = "";
 	if (myfile.is_open())
 	{
+
 		
 		
 		myfile.get(character);

@@ -35,6 +35,10 @@ Tree::Tree()
 			findNode(*n.nextSibling);
 			
 		}
+		else
+		{
+			cout << n.value;
+		}
 	}
 	return n;
 };
