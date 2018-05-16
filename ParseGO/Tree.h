@@ -23,5 +23,7 @@ public:
 	treeNode functions;
 	treeNode decs;
 
-	treeNode findNode(treeNode n);
+	treeNode findNode(treeNode *&n,treeNode* child);
+	treeNode findChild(treeNode *n, treeNode* child);
+	treeNode CreateNode(string value,treeNode* n);
 };

@@ -22,34 +22,65 @@ Tree::Tree()
 	decs.value = "Yay, it worked";
 };
 
-
- Tree::treeNode Tree::findNode(Tree::treeNode n)
+Tree::treeNode Tree::findChild(Tree::treeNode *n, Tree::treeNode* child)
 {
-
-	if (n.firstChild != NULL)
+	cout << n;
+	if (n ->firstChild != NULL)
 	{
-		cout << n.value+"\n";
+		Tree::treeNode* x = n->firstChild;
+		cout << n -> value + "\n";
 		cout << "moving to first child \n";
-		
-		findNode(*n.firstChild);
-		
+		findNode(x,child);
+
 	}
 	else
 	{
-		if (n.nextSibling != NULL)
+
+		cout << "appending to first child \n";
+		cout << "child address:";
+		cout << n ->firstChild;
+		cout << "\n";
+		n -> firstChild = child;
+		
+	}
+	return *n -> firstChild;
+}
+ Tree::treeNode Tree::findNode(Tree::treeNode *&n, Tree::treeNode* child)
+{
+
+
+		cout << n->nextSibling;
+		if (n ->nextSibling != NULL)
 		{
-			cout << n.value+"\n";
+			cout << n ->value + "\n";
 			cout << "moving to next sibling \n";
-			
-			findNode(*n.nextSibling);
-			
-			
+
+			findNode(n->nextSibling,child);
+
+
 		}
 		else
 		{
-			cout << n.value;
+			cout << "appending value:";
+			cout << child;
+			n -> nextSibling = child;
+
+			
 		}
-	}
-	return n;
+		 
+	 
+	return *n;
 };
+
+ Tree::treeNode Tree::CreateNode(string value,Tree::treeNode* base)
+ {
+	Tree::treeNode x;
+	Tree::treeNode temp;
+	temp.value = value;
+	cout << base -> value;
+	cout << "\n";
+
+	x=Tree::findChild(base, &temp);
+	return x;
+ }
 

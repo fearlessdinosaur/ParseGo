@@ -11,9 +11,10 @@
 
 
 Lexer lex;
+Tree tree;
 Parser::Parser()
 {
-
+	tree = Tree();
 }
 
 string Parser::getNext()
@@ -24,14 +25,12 @@ string Parser::getNext()
 
 	if (toke.compare("package")==1)
 	{	
-		cout << toke;
 		res=lookPackage();
 		return res;
 	}
 
 	if (toke.compare("import") == 1)
 	{
-		cout << toke;
 		res = lookImport();
 		return res;
 	}
@@ -63,8 +62,7 @@ string Parser::lookPackage()
 	}
 	*/
 	result = lex.getToken();
-	Tree tree = Tree();
-	tree.CreateNode(result, tree.package);
+	tree.CreateNode(result, &tree.package);
 	return result;
 }
 
@@ -93,8 +91,7 @@ string Parser::lookImport()
 	*/
 
 	result = lex.getToken();
-	Tree tree = Tree();
-	tree.CreateNode(result, tree.Imports);
+	tree.CreateNode(result, &tree.Imports);
 	return result;
 }
 Parser::~Parser()
