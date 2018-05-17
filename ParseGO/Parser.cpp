@@ -28,14 +28,17 @@ string Parser::getNext()
 		res=lookPackage();
 		return res;
 	}
-
-	if (toke.compare("import") == 1)
+	else if (toke.compare("import") == 1)
 	{
 		res = lookImport();
 		return res;
 	}
-
-	if (toke.compare("EOF") == 1)
+	else if (toke.compare("func") == 1)
+	{
+		res = lookFunction();
+		return res;
+	}
+	else if (toke.compare("EOF") == 1)
 	{
 		return "END";
 	}
@@ -77,6 +80,20 @@ string Parser::lookImport()
 		cout << "ERROR 1:" << result << " is a reserved keyword";
 		return result;
 	}
+}
+string Parser::lookFunction()
+{
+	string result;
+
+	result = lex.getToken();
+
+		tree.CreateNode(result, &tree.functions);
+		return result;
+
+}
+string Parser::lookDec()
+{
+	return "gjgj";
 }
 Parser::~Parser()
 {

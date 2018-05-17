@@ -10,7 +10,7 @@ Tree::treeNode decs;
 
 Tree::Tree()
 {
-	Tree:root.firstChild = &package;
+	root.firstChild = &package;
 	package.nextSibling = &Imports;
 	Imports.nextSibling = &functions;
 	functions.nextSibling = &decs;

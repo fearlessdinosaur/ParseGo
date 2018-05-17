@@ -11,6 +11,8 @@ public:
 	Parser();
 	string lookPackage();
 	string lookImport();
+	string lookFunction();
+	string lookDec();
 	string getNext();
 	~Parser();
 };

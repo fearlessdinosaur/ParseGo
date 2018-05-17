@@ -7,5 +7,5 @@ import "sql"
 import "tt"
 
 func main() {
-	fmt.Println("Hello")
+	d := 10
 }

@@ -1,3 +1,3 @@
-﻿  Lexer.cpp
-c:\users\dcrai\vagrant\vagrant_shared_folder\parsego\parsego\lexer.cpp(62): warning C4715: 'Lexer::getToken': not all control paths return a value
+﻿  Parser.cpp
+c:\users\dcrai\vagrant\vagrant_shared_folder\parsego\parsego\parser.cpp(62): warning C4715: 'Parser::lookPackage': not all control paths return a value
   ParseGO.vcxproj -> C:\Users\dcrai\Vagrant\Vagrant_Shared_Folder\ParseGO\Debug\ParseGO.exe

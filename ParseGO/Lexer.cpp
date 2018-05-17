@@ -20,23 +20,28 @@ string Lexer::getToken()
 		
 		myfile.get(character);
 
-		if (myfile.eof())
-		{
-			return "EOF";
-		}
 
-		if(character == '\n' || character == '\r')
+
+		if(character == '\n' || character == '\r' || character == '{' || character == '	')
 		{
 			myfile.get(character);
 		}
+
 		if (character == '"')
 		{
 			myfile.get(character);
 			while (character != '"')
 			{
+
+				if (character == '\n')
+				{
+					cout << "error 2: missing \" \n ";
+				}
+
 				token.append(1, character);
 				myfile.get(character);
 
+				
 
 
 			}
@@ -51,7 +56,14 @@ string Lexer::getToken()
 
 
 			}
+		}		
+		
+		
+		if (myfile.eof())
+		{
+			return "EOF";
 		}
+
 		token.append("\n");
 		cout << token;
 		count++;
