@@ -16,7 +16,6 @@ string Lexer::getToken()
 	string token = "";
 	if (myfile.is_open())
 	{
-
 		
 		
 		myfile.get(character);
@@ -30,16 +29,31 @@ string Lexer::getToken()
 		{
 			myfile.get(character);
 		}
+		if (character == '"')
+		{
+			myfile.get(character);
+			while (character != '"')
+			{
+				token.append(1, character);
+				myfile.get(character);
 
+
+
+			}
+		}
+		else
+		{
 			while (character != ' ' && character != '\n')
 			{
-					token.append(1,character);
-					myfile.get(character); 
-				
+				token.append(1, character);
+				myfile.get(character);
 
-			
+
+
 			}
+		}
 		token.append("\n");
+		cout << token;
 		count++;
 		return token;
 	}

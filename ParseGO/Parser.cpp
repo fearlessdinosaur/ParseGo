@@ -45,54 +45,38 @@ string Parser::getNext()
 string Parser::lookPackage()
 {
 	string result;
-	/*
-	string package;
-	string literal;
-	
-	package = lex.getToken();
-
-	if (package.compare("package")) {
-		result = "Package found";
+	result = lex.getToken();
+	if (result != "func" || result != "package" || result != "import")
+	{
+		tree.CreateNode(result, &tree.package);
 		return result;
 	}
 	else
 	{
-		cout << "Didnt work";
-		return 0;
+		cout << "ERROR 1:" << result << " is a reserved keyword";
 	}
-	*/
-	result = lex.getToken();
-	tree.CreateNode(result, &tree.package);
-	return result;
+	
 }
 
 string Parser::lookImport()
 {
 	string result;
+
+	result = lex.getToken();
+
 	
-	//Used to see if if import could be found
-	/*
-	if (import.compare("import")) {
-		result = "Import found";
+	
+
+	if (result != "func" || result != "package" || result != "import")
+	{
+		tree.CreateNode(result, &tree.Imports);
 		return result;
 	}
 	else
 	{
-		cout << "Didnt work";
-		return 0;
-	}
-	
-	
-	do {
-		import = lex.getToken();
-		result = "Import found";
+		cout << "ERROR 1:" << result << " is a reserved keyword";
 		return result;
-	} while (import.compare("import"));
-	*/
-
-	result = lex.getToken();
-	tree.CreateNode(result, &tree.Imports);
-	return result;
+	}
 }
 Parser::~Parser()
 {

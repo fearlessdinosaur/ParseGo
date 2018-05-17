@@ -22,50 +22,39 @@ Tree::Tree()
 	decs.value = "Yay, it worked";
 };
 
-Tree::treeNode Tree::findChild(Tree::treeNode *n, Tree::treeNode* child)
+Tree::treeNode Tree::findChild(Tree::treeNode *&n, Tree::treeNode* child)
 {
-	cout << n;
+
+
 	if (n ->firstChild != NULL)
 	{
-		Tree::treeNode* x = n->firstChild;
-		cout << n -> value + "\n";
-		cout << "moving to first child \n";
-		findNode(x,child);
-
+		
+		cout << "first child already exists,"<< n ->firstChild ->value << "moving on\n";
+		findNode(*&n ->firstChild,child);
 	}
 	else
 	{
-
-		cout << "appending to first child \n";
-		cout << "child address:";
-		cout << n ->firstChild;
-		cout << "\n";
-		n -> firstChild = child;
-		
+		cout << "adding new first child "<<child<<"\n";
+		n->firstChild = child;
+		cout << n->firstChild << "\n";
 	}
 	return *n -> firstChild;
 }
  Tree::treeNode Tree::findNode(Tree::treeNode *&n, Tree::treeNode* child)
 {
-
-
-		cout << n->nextSibling;
+	 cout << "Parent Node address:" << n << "\n";
+	 cout << "parent Node value:" << n->value;
 		if (n ->nextSibling != NULL)
 		{
-			cout << n ->value + "\n";
-			cout << "moving to next sibling \n";
-
+			cout <<"end not found, moving to next \n";
 			findNode(n->nextSibling,child);
-
-
 		}
 		else
 		{
-			cout << "appending value:";
-			cout << child;
+			cout << "end found, appending \n";
+			cout << "original value:" << n ->nextSibling << "\n";
 			n -> nextSibling = child;
-
-			
+			cout << "final value:" << n ->nextSibling << "\n";
 		}
 		 
 	 
@@ -75,12 +64,10 @@ Tree::treeNode Tree::findChild(Tree::treeNode *n, Tree::treeNode* child)
  Tree::treeNode Tree::CreateNode(string value,Tree::treeNode* base)
  {
 	Tree::treeNode x;
-	Tree::treeNode temp;
-	temp.value = value;
-	cout << base -> value;
-	cout << "\n";
+	Tree::treeNode *temp = new Tree::treeNode;
+	temp -> value = value;
 
-	x=Tree::findChild(base, &temp);
+	x=Tree::findChild(*&base, temp);
 	return x;
  }
 
