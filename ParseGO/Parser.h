@@ -14,6 +14,7 @@ public:
 	string lookFunction();
 	string lookDec();
 	string getNext();
+	void printTree();
 	~Parser();
 };
 

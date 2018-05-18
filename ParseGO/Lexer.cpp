@@ -22,7 +22,7 @@ string Lexer::getToken()
 
 
 
-		if(character == '\n' || character == '\r' || character == '{' || character == '	')
+		while(character == '\n' || character == '\r' || character == '{' || character == '\t')
 		{
 			myfile.get(character);
 		}

@@ -7,5 +7,6 @@ import "sql"
 import "tt"
 
 func main() {
-	d := 10
+
+	d := 5
 }

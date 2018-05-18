@@ -42,6 +42,15 @@ string Parser::getNext()
 	{
 		return "END";
 	}
+	else
+	{
+			cout << "Token:" << toke;
+			if (lex.getToken() == ":=")
+			{
+
+			}
+		
+	}
 	return res;
 }
 
@@ -94,6 +103,12 @@ string Parser::lookFunction()
 string Parser::lookDec()
 {
 	return "gjgj";
+}
+
+void Parser::printTree()
+{
+	cout << &tree.root;
+	tree.PrintTree(&tree.root);
 }
 Parser::~Parser()
 {

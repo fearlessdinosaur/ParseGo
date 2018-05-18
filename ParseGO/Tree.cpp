@@ -36,14 +36,11 @@ Tree::treeNode Tree::findChild(Tree::treeNode *&n, Tree::treeNode* child)
 	{
 		cout << "adding new first child "<<child<<"\n";
 		n->firstChild = child;
-		cout << n->firstChild << "\n";
 	}
 	return *n -> firstChild;
 }
  Tree::treeNode Tree::findNode(Tree::treeNode *&n, Tree::treeNode* child)
 {
-	 cout << "Parent Node address:" << n << "\n";
-	 cout << "parent Node value:" << n->value;
 		if (n ->nextSibling != NULL)
 		{
 			cout <<"end not found, moving to next \n";
@@ -61,6 +58,28 @@ Tree::treeNode Tree::findChild(Tree::treeNode *&n, Tree::treeNode* child)
 	return *n;
 };
 
+ void Tree::PrintTree(Tree::treeNode *root)
+ {
+	 /*
+	 if (root == NULL)
+	 {
+		 return;
+	 }
+
+
+		 cout <<  root->value;
+
+		 PrintTree(root->firstChild);
+
+		 PrintTree(root->nextSibling);
+	 */
+
+	 cout << root;
+ }
+
+
+ Tree::
+ 
  Tree::treeNode Tree::CreateNode(string value,Tree::treeNode* base)
  {
 	Tree::treeNode x;
